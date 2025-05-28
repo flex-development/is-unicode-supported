@@ -1,0 +1,163 @@
+{
+  "name": "@flex-development/is-unicode-supported",
+  "description": "check if unicode is supported",
+  "version": "0.0.0",
+  "keywords": [
+    "ascii",
+    "browser",
+    "check",
+    "console",
+    "detect",
+    "detection",
+    "shell",
+    "support",
+    "supported",
+    "supports",
+    "unicode",
+    "utf8",
+    "terminal"
+  ],
+  "license": "BSD-3-Clause",
+  "homepage": "https://github.com/flex-development/is-unicode-supported",
+  "repository": "https://github.com/flex-development/is-unicode-supported.git",
+  "bugs": "https://github.com/flex-development/is-unicode-supported/issues",
+  "author": {
+    "name": "Lexus Drumgold",
+    "url": "https://github.com/unicornware"
+  },
+  "publishConfig": {
+    "access": "public",
+    "diff-dst-prefix": "is-unicode-supported",
+    "diff-src-prefix": "is-unicode-supported",
+    "directory": "./",
+    "executableFiles": [],
+    "node-options": null,
+    "pack-destination": ".",
+    "parseable": true,
+    "prefer-dedupe": true,
+    "provenance": true,
+    "tag-version-prefix": ""
+  },
+  "type": "module",
+  "files": [
+    "CHANGELOG.md",
+    "LICENSE.md",
+    "README.md",
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "is-unicode-supported": "./src/index.mts",
+      "default": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "imports": {
+    "#internal/process": {
+      "types": "./src/internal/process.d.mts",
+      "browser": {
+        "is-unicode-supported": "./src/internal/process.browser.mts",
+        "default": "./dist/internal/process.browser.mjs"
+      },
+      "node": "process",
+      "default": "process"
+    },
+    "#internal/*": {
+      "is-unicode-supported": "./src/internal/*.mts",
+      "default": "./dist/internal/*.mjs"
+    },
+    "#is-unicode-supported": {
+      "is-unicode-supported": "./src/is-unicode-supported.mts",
+      "default": "./dist/is-unicode-supported.mjs"
+    },
+    "#tests/*": "./__tests__/*.mts"
+  },
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "remarkConfig": {
+    "plugins": [
+      "@flex-development/remark-preset"
+    ]
+  },
+  "scripts": {
+    "build": "yarn clean:build; tsc -p tsconfig.build.json --noEmit false; trash ./dist/internal/*.d.mts || exit 0",
+    "check:ci": "yarn dedupe --check && yarn check:format && yarn check:lint && yarn check:spelling && yarn typecheck && yarn test:cov && yarn pack && yarn check:types:build && attw package.tgz && yarn clean:pack",
+    "check:format": "dprint check --incremental=false",
+    "check:lint": "eslint --exit-on-fatal-error --max-warnings 0 .",
+    "check:spelling": "cspell lint --color --no-progress --relative $@ \"**\"",
+    "check:types": "tsc -p tsconfig.typecheck.json",
+    "check:types:attw": "yarn pack && attw package.tgz; yarn clean:pack",
+    "check:types:build": "tsc -p tsconfig.build.json",
+    "check:upgrades": "yarn upgrade-interactive",
+    "clean:build": "trash \"./{dist,*.tgz}\"",
+    "clean:modules": "trash ./.yarn/{cache,*.gz} ./node_modules",
+    "clean:pack": "trash \"./*.tgz\"",
+    "clean:test": "trash ./coverage && trash __tests__/reports",
+    "codecov": "yarn test:cov && yarn test:cov:upload",
+    "codecov:validate": "cat .codecov.yml | curl --data-binary @- https://codecov.io/validate",
+    "commitlint": "commitlint -V",
+    "fix:cg": "yarn fix:format && yarn fix:lint",
+    "fix:dedupe": "yarn dedupe --strategy=highest",
+    "fix:format": "dprint fmt",
+    "fix:lint": "yarn check:lint --cache --fix",
+    "postinstall": "[ -f ./.git ] && [ -f ./node_modules/.bin/husky ] && chmod +x .husky/* && husky || exit 0",
+    "postpack": "toggle-scripts +postinstall",
+    "postpublish": "toggle-scripts +prepack",
+    "prepack": "toggle-scripts -postinstall && yarn build",
+    "prepublishOnly": "toggle-scripts -prepack",
+    "release": "bash ./scripts/release.sh",
+    "remark": "remark .",
+    "test": "yarn clean:build; cross-env NODE_OPTIONS=\"--conditions is-unicode-supported --experimental-strip-types --experimental-transform-types\" vitest run",
+    "test:cov": "yarn test --coverage",
+    "test:cov:reports": "yarn test:cov --merge-reports --mode=reports",
+    "test:cov:ui": "yarn test:ui --coverage",
+    "test:cov:upload": "./codecov -t $CODECOV_TOKEN -f ./coverage/lcov.info",
+    "test:reports": "yarn test --merge-reports --mode=reports",
+    "test:ui": "cross-env VITEST_UI=1 NODE_OPTIONS=\"--conditions is-unicode-supported --experimental-strip-types --experimental-transform-types\" vitest --ui",
+    "typecheck": "yarn test --typecheck --mode=typecheck",
+    "typecheck:ui": "yarn test:ui --typecheck --mode=typecheck"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "0.18.1",
+    "@commitlint/cli": "19.8.1",
+    "@commitlint/types": "19.8.1",
+    "@flex-development/colors": "1.0.2",
+    "@flex-development/commitlint-config": "1.0.1",
+    "@flex-development/eslint-config": "1.1.1",
+    "@flex-development/grease": "3.0.0-alpha.9",
+    "@flex-development/pathe": "4.0.1",
+    "@flex-development/remark-preset": "1.0.0",
+    "@flex-development/tutils": "6.0.0-alpha.25",
+    "@tsconfig/strictest": "2.0.5",
+    "@types/is-ci": "3.0.4",
+    "@types/node-notifier": "8.0.5",
+    "@vates/toggle-scripts": "1.0.0",
+    "@vitest/coverage-v8": "3.1.4",
+    "@vitest/ui": "3.1.4",
+    "cross-env": "7.0.3",
+    "cspell": "9.0.2",
+    "devlop": "1.1.0",
+    "dprint": "0.50.0",
+    "editorconfig": "2.0.1",
+    "eslint": "9.27.0",
+    "growl": "1.10.5",
+    "happy-dom": "17.5.6",
+    "husky": "9.1.7",
+    "is-ci": "4.1.0",
+    "node-notifier": "10.0.1",
+    "prettier": "3.5.3",
+    "remark": "15.0.1",
+    "remark-cli": "12.0.1",
+    "sh-syntax": "0.5.8",
+    "tinyrainbow": "2.0.0",
+    "trash-cli": "6.0.0",
+    "ts-dedent": "2.2.0",
+    "typescript": "5.8.3",
+    "unified": "11.0.5",
+    "vfile": "6.0.3",
+    "vitest": "3.1.4",
+    "yaml-eslint-parser": "1.3.0"
+  },
+  "packageManager": "yarn@4.9.1",
+  "sideEffects": false
+}
