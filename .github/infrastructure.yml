@@ -32,7 +32,7 @@ branches:
           - context: gitguardian
           - context: lint
           - context: spelling
-          - context: test
+          - context: test (24)
           - context: typescript
         strict: true
       restrictions: null
