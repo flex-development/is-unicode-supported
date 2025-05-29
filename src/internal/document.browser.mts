@@ -3,4 +3,4 @@
  * @module is-unicode-supported/internal/document/browser
  */
 
-export default global.document
+export default window.document

@@ -4,7 +4,7 @@
  */
 
 import type Process from '#interfaces/process'
-import document from '#internal/document.browser'
+import document from '#internal/document'
 import testSubject from '#internal/supported'
 
 describe('unit:internal/supported', () => {
