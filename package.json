@@ -1,7 +1,7 @@
 {
   "name": "@flex-development/is-unicode-supported",
   "description": "check if unicode is supported",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": [
     "ascii",
     "browser",
