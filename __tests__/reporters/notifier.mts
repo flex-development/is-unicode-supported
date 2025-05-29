@@ -94,7 +94,8 @@ class Notifier implements Reporter {
     // collect passing and failing tests.
     for (const module of modules) {
       for (const test of module.children.allTests()) {
-        tests[test.result().state as keyof typeof tests].push(test)
+        const { state } = test.result()
+        if (state === 'failed' || state === 'passed') tests[state].push(test)
       }
     }
 

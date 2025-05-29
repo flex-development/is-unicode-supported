@@ -84,8 +84,8 @@ Check if [Unicode][] is supported.
 
 This can be useful to decide whether to use Unicode characters or fallback ASCII characters.
 
-> 👉 **Note**: The function assumes all non-Windows terminals support Unicode and checks which Windows terminals have
-> unicode support against a hardcoded list.
+> 👉 **Note**: The function assumes all non-Windows terminals support Unicode and browsers that can correctly render
+> `'✓'` (`U+2713`) also support unicode. Windows terminals with unicode support are checked against a hardcoded list.
 
 #### Returns
 

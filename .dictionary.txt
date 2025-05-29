@@ -1,5 +1,6 @@
 attw
 cefc
+cmder
 commitlintrc
 dedupe
 devlop
@@ -13,6 +14,7 @@ kaisugi
 mbold
 nvmrc
 pkgs
+rxvt
 sarif
 shfmt
 unstub

@@ -3,4 +3,4 @@
  * @module is-unicode-supported
  */
 
-export {}
+export { default, default as isUnicodeSupported } from '#is-unicode-supported'

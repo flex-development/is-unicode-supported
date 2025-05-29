@@ -153,6 +153,7 @@ function config(this: void, env: ConfigEnv): ViteUserConfig {
             environment: 'node',
             environmentOptions: {},
             name: 'node',
+            setupFiles: [],
             typecheck: { enabled: false }
           }
         }
