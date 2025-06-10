@@ -134,7 +134,7 @@
     "typecheck:ui": "yarn test:ui --typecheck --mode=typecheck"
   },
   "devDependencies": {
-    "@arethetypeswrong/cli": "0.18.1",
+    "@arethetypeswrong/cli": "0.18.2",
     "@commitlint/cli": "19.8.1",
     "@commitlint/types": "19.8.1",
     "@flex-development/colors": "1.0.2",
