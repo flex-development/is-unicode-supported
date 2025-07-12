@@ -1678,7 +1678,7 @@ __metadata:
     cspell: "npm:9.1.3"
     devlop: "npm:1.1.0"
     dprint: "npm:0.50.1"
-    editorconfig: "npm:3.0.0"
+    editorconfig: "npm:3.0.1"
     eslint: "npm:9.31.0"
     growl: "npm:1.10.5"
     happy-dom: "npm:18.0.1"
@@ -4534,9 +4534,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"editorconfig@npm:3.0.0":
-  version: 3.0.0
-  resolution: "editorconfig@npm:3.0.0"
+"editorconfig@npm:3.0.1":
+  version: 3.0.1
+  resolution: "editorconfig@npm:3.0.1"
   dependencies:
     "@one-ini/wasm": "npm:0.2.0"
     commander: "npm:^14.0.0"
@@ -4544,7 +4544,7 @@ __metadata:
     semver: "npm:^7.7.2"
   bin:
     editorconfig: bin/editorconfig
-  checksum: 10/3e62bd1cb9636800e0a079c37a548f26986ca2db99b2386a4b754f37b03073277f0927247d2a15629711a9b2ec316a28ba990ab78cba0c097aac5234164d1509
+  checksum: 10/3e62dc7da18ba3c087a0a65e33e719a58057956f697ca62328f191f7d7516ebcad00d25d8dfc92265cfdeb7f9d4c6e7678f0555f1e53bd5c6fbd138824cd7089
   languageName: node
   linkType: hard
 
